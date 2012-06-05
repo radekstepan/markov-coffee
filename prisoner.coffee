@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 
 window.Prisoner = ->
-    numbertrials = 50 # number of trials
+    numbertrials = 500 # number of trials
     dlong = 3 # hours for the long tunnel
     dshort = 2 # hours for the short tunnel
 

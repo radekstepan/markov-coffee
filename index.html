@@ -8,9 +8,12 @@
         <link href="bootstrap.css" rel="stylesheet">
         
         <style>
-            #chart { font:10px sans-serif; shape-rendering:crispEdges; }
-            #chart rect { fill:steelblue; stroke:white; }
-            #chart line { stroke:black; }
+            #chart { font:10px Georgia; shape-rendering:crispEdges; }
+            #chart rect { fill:#ccd2f7; stroke:#3c3e49; }
+            #chart line { stroke:#3c3e49; }
+            #chart .result circle { fill:#ff0000; }
+            #chart .result text { font-weight:bold; }
+            #chart text { text-anchor:middle; }
         </style>
 
         <script src="http://cdn.intermine.org/js/jquery/1.7.2/jquery.min.js"></script>
@@ -38,8 +41,8 @@
 
         <div class="container">
             <div class="row">
-                <div id="chart" class="span6"></div>
-                <div class="legend" class="span6">
+                <div class="span6" id="chart"></div>
+                <div class="span6" id="legend">
                     <h3>Problem</h3>
                     <p>
                     A prisoner is in a dungeon with three doors. One door leads to freedom, one door leads to a long tunnel, and a third door leads to a short tunnel. The two tunnels return the prisoner to the dungeon. If the prisoner returns to the dungeon, he attempts to gain his freedom again, but his past experiences do not help him in selecting the door that leads to freedom, that is, we assume a Markov prisoner.
@@ -47,16 +50,16 @@
 
                     <h3>Probabilities</h3>
                     <p>
-                    The prisoner's probability of selecting the doors are: `20%` to freedom, `50%` to the short tunnel, and `30%` to the long tunnel. Assuming the travel times through the long and short tunnels are `3` and `2` hours, respectively, our goal is to determine the expected number of hours until the prisoner selects the door which leads to freedom.
+                    The prisoner's probability of selecting the doors are: 20% to freedom, 50% to the short tunnel, and 30% to the long tunnel. Assuming the travel times through the long and short tunnels are 3 and 2 hours, respectively, our goal is to determine the expected number of hours until the prisoner selects the door which leads to freedom.
                     </p>
 
                     <h3>Solution</h3>
                     <p>
-                    Mathematically, you can solve this problem using expected values. This Demonstration showcases solving it using Monte Carlo simulation. The simulation show the number of hours until freedom is reached for a number of simulation trials.
+                    Mathematically, you can solve this problem using expected values. This demonstration showcases solving it using Monte Carlo simulation. The simulation show the number of hours until freedom is reached for a number of simulation trials.
                     </p>
 
                     <p>
-                    As the number of trials increases, the mean of the simulation results converges to the theoretical value <span id="mean" class="label">9.5</span> for the probabilities defined in the problem.
+                    As the number of trials increases, the mean of the simulation results converges to the theoretical value 9.5 for the probabilities defined in the problem.
                     </p>
                 </div>
             </div>
