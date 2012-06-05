@@ -5,7 +5,8 @@ $ ->
     [days, mean, trials] = Prisoner()
 
     # Setup.
-    width = 460 ; height = 430 ; bins = 30 ; axisXHeight = 25 ; axisYWidth = 25 ; topMargin = 10
+    width = $('#chart').width() ; height = 300
+    bins = 30 ; margins = [ 10, 10, 25, 25 ]
 
     maxval = Math.max days... ; minval = Math.min days...
     stepsize = (maxval - minval) / bins
@@ -13,9 +14,9 @@ $ ->
     histogram = d3.layout.histogram().bins(bins)(days)
     
     # Domain
-    x = d3.scale.ordinal().domain(histogram.map( (d) -> d.x )).rangeRoundBands([ 0, width - axisYWidth ])
-    y = d3.scale.linear().domain([ 0, d3.max(histogram.map( (d) -> d.y )) ]).range([ 0, height - axisXHeight - topMargin ])
-    l = d3.scale.linear().domain([ 0, maxval ]).range([ 0, width - axisYWidth ])
+    x = d3.scale.ordinal().domain(histogram.map( (d) -> d.x )).rangeRoundBands([ 0, width - margins[3] - margins[1] ])
+    y = d3.scale.linear().domain([ 0, d3.max(histogram.map( (d) -> d.y )) ]).range([ 0, height - margins[2] - margins[0] ])
+    l = d3.scale.linear().domain([ 0, maxval ]).range([ 0, width - margins[3] - margins[1] ])
 
     svg = d3.select("#chart").append("svg:svg")
     .attr("width", width)
@@ -26,15 +27,15 @@ $ ->
     
     axisX = axes.append('svg:g')
     .attr('class', 'x')
-    .attr('transform', "translate(#{axisYWidth},0)")
+    .attr('transform', "translate(#{margins[3]},0)")
 
     axisY = axes.append('svg:g').attr('class', 'y')
-    .attr('transform', "translate(0,-#{axisXHeight + topMargin})")
+    .attr('transform', "translate(0,-#{margins[2] + margins[0]})")
 
     # Graph.
     graph = svg.append('svg:g')
     .attr('class', 'graph')
-    .attr('transform', "translate(#{axisYWidth},-#{axisXHeight + topMargin})")
+    .attr('transform', "translate(#{margins[3]},-#{margins[2] + margins[0]})")
 
     # Bars.
     bars = graph.append("svg:g")
@@ -77,5 +78,5 @@ $ ->
     for tick in y.ticks(10)
         axisY.append("svg:text")
         .attr("x", 0)
-        .attr("y", height + topMargin - y(tick))
+        .attr("y", height + margins[0] - y(tick))
         .text(tick)

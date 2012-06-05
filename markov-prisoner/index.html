@@ -9,11 +9,11 @@
         
         <style>
             #chart { font:10px Georgia; shape-rendering:crispEdges; }
-            #chart rect { fill:#E36B23; stroke:#ECE9D7; }
+            #chart rect { fill:#ccd2f7; stroke:#3c3e49; }
             #chart line { stroke:#3c3e49; }
-            #chart .result line { stroke:#ff0000; }
+            #chart .result line { stroke:#A80016; }
             #chart .result text { font-weight:bold; }
-            #chart text { fill:#ECE9D7; text-anchor:middle; shape-rendering:crispEdges; }
+            #chart text { fill:#000; text-anchor:middle; shape-rendering:crispEdges; }
             #chart .axes .y text { text-anchor:start; }
             #chart .axes .x text.legend { font-style:italic; }
         </style>
@@ -32,7 +32,7 @@
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container" style="width: auto;">
-                    <a class="brand" href="#">Monte Carlo Simulation of Markov Prisoner</a>
+                    <a class="brand" href="#"><strong>Monte Carlo</strong> Simulation of Markov Prisoner</a>
                     <ul class="nav pull-right">
                         <li class="divider-vertical"></li>
                         <li><a target="_blank" href="https://github.com/radekstepan/markov-coffee">Fork me on GitHub</a></li>
@@ -43,7 +43,11 @@
 
         <div class="container">
             <div class="row">
-                <div class="span6" id="chart"></div>
+                <div class="span6">
+                    <div style="border:1px solid #b9b7ae;border-top:4px solid #7b84d3;padding:10px;box-shadow:-5px 5px 5px #eee;">
+                        <div id="chart"></div>
+                    </div>
+                </div>
                 <div class="span6" id="legend">
                     <h3>Problem</h3>
                     <p>
