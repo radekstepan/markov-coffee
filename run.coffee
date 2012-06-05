@@ -5,24 +5,18 @@ $ ->
     [days, mean, trials] = Prisoner()
 
     # Convert to Mynd input format.
-    data = days.map (single) ->
-        "description": '',
-        "data":        [ Math.random() ]
+    data = days.map (datum, index) ->
+        "description": index,
+        "data":        [ datum ]
 
     chart = new Mynd.Chart.column(
-        el:        $("#output div.chart")
+        el:        $("#output")
         data:      data
-        width:     460
+        width:     $('#output').width()
+        height:    $('#output').height()
         isStacked: false
-        axis:      [ 'number', 'hour' ]
+        axis:
+            'vertical':   'number'
+            'horizontal': 'hour'
     )
-
-    settings = new Mynd.Chart.settings(
-        el:        $("#output div.settings")
-        chart:     chart
-        isStacked: false
-    )
-    settings.render()
-
-    chart.height = $('#output').height() - $("#output div.settings").height()
     chart.render()
