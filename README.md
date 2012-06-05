@@ -12,6 +12,6 @@ The prisoner's probability of selecting the doors are: `20%` to freedom, `50%` t
 
 ## Solution
 
-Mathematically, you can solve this problem using expected values. This Demonstration showcases solving it using Monte Carlo simulation. The simulation lets you see the number of hours until freedom is reached for the specified number of simulation trials.
+Mathematically, you can solve this problem using expected values. This Demonstration showcases solving it using Monte Carlo simulation. The simulation show the number of hours until freedom is reached for a number of simulation trials.
 
-As the number of trials increases, the mean of the simulation results converges to the theoretical value (`9.5` for the probabilities defined in the problem). You can also explore the option of the doors having equal probability and changing the number of hours for each tunnel.
+As the number of trials increases, the mean of the simulation results converges to the theoretical value (`9.5` for the probabilities defined in the problem).
